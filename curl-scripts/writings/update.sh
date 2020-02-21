@@ -15,4 +15,3 @@ curl "http://localhost:4741/writings/${ID}" \
   }'
 
   echo
-asdf
