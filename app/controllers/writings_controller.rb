@@ -51,6 +51,6 @@ class WritingsController < OpenReadController
 
   # Only allow a trusted parameter "white list" through.
   def writing_params
-    params.require(:writing).permit(:user_id, :type, :completion_date, :country_of_origin, :recommend, :author)
+    params.require(:writing).permit(:user_id, :genre, :completion_date, :country_of_origin, :recommend, :author)
   end
 end

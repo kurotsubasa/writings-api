@@ -35,7 +35,7 @@ ActiveRecord::Schema.define(version: 2020_02_21_150931) do
 
   create_table "writings", force: :cascade do |t|
     t.bigint "user_id"
-    t.string "type"
+    t.string "genre"
     t.string "completion_date"
     t.string "country_of_origin"
     t.boolean "recommend"
