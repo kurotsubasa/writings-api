@@ -7,6 +7,7 @@ curl "http://localhost:4741/writings" \
   --header "Authorization: Token token=${TOKEN}" \
   --data '{
     "writing": {
+      "name": "'"${NAME}"'",
       "genre": "'"${GENRE}"'",
       "completion_date": "'"${DATE}"'",
       "country_of_origin": "'"${ORIGIN}"'",
