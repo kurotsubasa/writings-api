@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_02_21_173037) do
+ActiveRecord::Schema.define(version: 2020_02_24_192608) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -21,6 +21,15 @@ ActiveRecord::Schema.define(version: 2020_02_21_173037) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_examples_on_user_id"
+  end
+
+  create_table "readings", force: :cascade do |t|
+    t.bigint "user_id"
+    t.bigint "writing_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_readings_on_user_id"
+    t.index ["writing_id"], name: "index_readings_on_writing_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -36,9 +45,6 @@ ActiveRecord::Schema.define(version: 2020_02_21_173037) do
   create_table "writings", force: :cascade do |t|
     t.bigint "user_id"
     t.string "genre"
-    t.string "completion_date"
-    t.string "country_of_origin"
-    t.boolean "recommend"
     t.string "author"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -47,5 +53,7 @@ ActiveRecord::Schema.define(version: 2020_02_21_173037) do
   end
 
   add_foreign_key "examples", "users"
+  add_foreign_key "readings", "users"
+  add_foreign_key "readings", "writings"
   add_foreign_key "writings", "users"
 end

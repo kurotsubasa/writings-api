@@ -1,5 +1,7 @@
 class WritingSerializer < ActiveModel::Serializer
-  attributes :id, :name, :genre, :completion_date, :country_of_origin, :recommend, :author, :editable
+  attributes :id, :name, :genre, :author, :editable
+  has_one :user
+  has_many :readings
 
   def editable
     scope == object.user
