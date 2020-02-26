@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-class ReadingsController < ApplicationController
+class ReadingsController < OpenReadController
   before_action :set_reading, only: %i[show update destroy]
 
   # GET /readings
@@ -49,6 +49,6 @@ class ReadingsController < ApplicationController
 
   # Only allow a trusted parameter "white list" through.
   def reading_params
-    params.require(:reading).permit(:user_id, :writing_id)
+    params.require(:reading).permit(:user_id, :writing_id, :status)
   end
 end
