@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-class ReadingsController < OpenReadController
+class ReadingsController < ProtectedController
   before_action :set_reading, only: %i[show update destroy]
 
   # GET /readings
